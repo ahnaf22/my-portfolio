@@ -84,13 +84,26 @@ export function Contact() {
             </div>
           </div>
 
-          <ul className="flex flex-col gap-1 font-display text-2xl font-medium md:text-right md:text-3xl">
-            {profile.links.map((l) => (
-              <li key={l.label}>
-                <a href={l.href} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 transition-colors hover:text-ember">
-                  {l.label}
-                  <span className="inline-block -translate-x-2 text-lg opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">↗</span>
-                </a>
+          <ul className="flex flex-col gap-1 font-display text-2xl font-medium md:items-end md:text-3xl">
+            {profile.links.map((l, i) => (
+              // each link is clipped and rises from below, one after another
+              <li key={l.label} className="overflow-hidden pb-1">
+                <motion.div
+                  initial={{ y: "110%", opacity: 0 }}
+                  whileInView={{ y: "0%", opacity: 1 }}
+                  viewport={{ once: true, margin: "0px 0px -8% 0px" }}
+                  transition={{ duration: 0.9, delay: 0.15 + i * 0.12, ease: EASE }}
+                >
+                  <a
+                    href={l.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-ember"
+                  >
+                    {l.label}
+                    <span className="inline-block -translate-x-2 text-lg opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">↗</span>
+                  </a>
+                </motion.div>
               </li>
             ))}
           </ul>

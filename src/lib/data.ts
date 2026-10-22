@@ -5,12 +5,12 @@ export const profile = {
   email: "ahnafahmad2013@gmail.com",
   phone: "+880 1953-593181",
   location: "Dhaka, Bangladesh",
-  // TODO: replace the "#" placeholders with the real profile URLs
+  // URLs taken from the clickable links in the CV PDF
   links: [
-    { label: "LinkedIn", href: "#" },
-    { label: "GitHub", href: "#" },
-    { label: "Fiverr", href: "#" },
-    { label: "UVA Online Judge", href: "#" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/ahnafshoumik19" },
+    { label: "GitHub", href: "https://github.com/ahnaf22" },
+    { label: "Fiverr", href: "https://www.fiverr.com/ahnaf22" },
+    { label: "UVA Online Judge", href: "https://uhunt.onlinejudge.org/id/593325" },
   ],
   cv: "/Ahnaf_Ahmad_Shoumik_CV.pdf",
 };
