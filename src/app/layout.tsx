@@ -27,7 +27,16 @@ const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://shoumikruns.netlify.app";
+const ogImage = {
+  url: "/og.png", // resolved against metadataBase into an absolute URL
+  width: 1200,
+  height: 630,
+  alt: "Ahnaf Ahmad Shoumik: I build e-commerce platforms and run the servers underneath them.",
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Ahnaf Ahmad Shoumik — Senior Software Engineer",
   description:
     "Senior software engineer in Dhaka building and running e-commerce platforms, payments and the Linux servers underneath them. PHP, Laravel, OpenCart, Flutter.",
@@ -36,6 +45,15 @@ export const metadata: Metadata = {
     description:
       "I build e-commerce platforms and run the servers underneath them. PHP · Laravel · OpenCart · Flutter · Linux.",
     type: "website",
+    url: siteUrl,
+    siteName: "Ahnaf Ahmad Shoumik",
+    images: [ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ahnaf Ahmad Shoumik — Senior Software Engineer",
+    description: "I build e-commerce platforms and run the servers underneath them.",
+    images: [ogImage.url],
   },
 };
 
