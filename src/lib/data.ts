@@ -16,7 +16,7 @@ export const profile = {
 };
 
 export const aboutText =
-  "I'm a senior engineer who likes owning a system from the first requirement call to the 3 a.m. pager. Five years of heavily customised OpenCart storefronts, payment and shipping integrations, and a multi-tenant SaaS I designed, shipped and keep alive on my own Linux servers. I use AI agents every day, and I read every diff before it ships.";
+  "I'm a senior engineer who likes owning a system from the first requirement call to the 3 a.m. pager. Five years of heavily customised e-commerce storefronts, payment and shipping integrations, and a multi-tenant SaaS I designed, shipped and keep alive on my own Linux servers. I use AI agents every day, and I read every diff before it ships.";
 
 export const stats = [
   { value: 5, suffix: "+", label: "Years in production", note: "PHP · Laravel · OpenCart" },
