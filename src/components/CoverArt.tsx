@@ -24,6 +24,7 @@ export const coverBg: Record<ArtId, string> = {
   parcel: C.cobalt,
   deshtax: C.sand,
   bricm: C.ink,
+  gotravel: C.lime,
   displaylab: C.ember,
   flatshop: C.cobalt,
   nutriora: C.lime,
@@ -201,6 +202,45 @@ function Bricm() {
   );
 }
 
+/** "Around Me": a radar sweep from the user, spots light up as it reaches them. */
+function GoTravel() {
+  const pins = [
+    { x: 292, y: 112, d: "2.1 km", begin: 0.9 },
+    { x: 104, y: 98, d: "5.4 km", begin: 1.9 },
+    { x: 276, y: 238, d: "8.8 km", begin: 2.9 },
+  ];
+  return (
+    <svg viewBox="0 0 400 300" className="size-full">
+      {[62, 112].map((r) => (
+        <circle key={r} cx="200" cy="160" r={r} fill="none" stroke={C.ink} strokeOpacity="0.22" strokeDasharray="3 6" />
+      ))}
+      <path d="M0 230 C 80 190, 130 270, 220 232 S 340 190, 400 214" fill="none" stroke={C.ink} strokeOpacity="0.14" strokeWidth="10" strokeLinecap="round" />
+      {[0, 1, 2].map((i) => (
+        <circle key={i} cx="200" cy="160" fill="none" stroke={C.ink} strokeWidth="1.5">
+          <animate attributeName="r" values="8;128" dur="4s" begin={`${i * 1.33}s`} repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.7;0" dur="4s" begin={`${i * 1.33}s`} repeatCount="indefinite" />
+        </circle>
+      ))}
+      <circle cx="200" cy="160" r="7" fill={C.ink} />
+      <circle cx="200" cy="160" r="2.5" fill={C.paper} />
+      {pins.map((p) => (
+        <g key={p.d} transform={`translate(${p.x} ${p.y})`}>
+          <animate attributeName="opacity" values="0.25;1;1;0.25" keyTimes="0;0.15;0.8;1" dur="4s" begin={`${p.begin % 4}s`} repeatCount="indefinite" />
+          <path d="M0 0 C -4 -8 -13 -14 -13 -24 A13 13 0 1 1 13 -24 C 13 -14 4 -8 0 0 Z" fill={C.ember} stroke={C.ink} strokeWidth="2" />
+          <circle cx="0" cy="-24" r="4.5" fill={C.paper} />
+          <rect x="-27" y="8" width="54" height="18" rx="9" fill={C.ink} />
+          <text x="0" y="20.5" textAnchor="middle" fontFamily="monospace" fontWeight="700" fontSize="10" fill={C.paper}>
+            {p.d}
+          </text>
+        </g>
+      ))}
+      <text x="22" y="282" fontFamily="monospace" fontSize="12" fill={C.ink}>
+        around me · nearest first
+      </text>
+    </svg>
+  );
+}
+
 function DisplayLab() {
   return (
     <svg viewBox="0 0 400 300" className="size-full">
@@ -321,6 +361,7 @@ const arts: Record<ArtId, () => React.JSX.Element> = {
   parcel: Parcel,
   deshtax: DeshTax,
   bricm: Bricm,
+  gotravel: GoTravel,
   displaylab: DisplayLab,
   flatshop: Flatshop,
   nutriora: Nutriora,

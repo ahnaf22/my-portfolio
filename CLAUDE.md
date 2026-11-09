@@ -60,7 +60,7 @@ There is no test suite. Verify changes by running the three checks above, then l
 
 ## Content rules
 
-- Facts come from the CV (`public/Ahnaf_Ahmad_Shoumik_CV.pdf`). Don't invent employers, dates, clients, or metrics. Current stats: 5+ years, 10,000+ concurrent users, 9+ products, 1 engineer on Storola.
+- Facts come from the CV (`public/Ahnaf_Ahmad_Shoumik_CV.pdf`). Don't invent employers, dates, clients, or metrics. Current stats (six, in `stats` in `data.ts`): Storola's 1,200+ active paid customers, 5.5M+ orders (55 lakh+) and BDT 400 crore merchant sales; then 5+ years, 10,000+ concurrent users, 10+ products (10 projects listed). Storola's numbers come from the CV's own wording, so don't round them up. Ten projects are listed; GoTravel (Laravel + Inertia/React) links to its live demo.
 - Profile URLs in `data.ts` were taken from the CV's own links. Keep them in sync with the CV.
 - The terminal's `status`, `deploy` and `logs` output is **illustrative demo data**. `status` says so on screen. Keep any new fake output clearly in character and never present it as a real incident or real numbers.
 - Lead with Storola (SaaS) and custom e-commerce work. OpenCart is one tool among several, not the headline.

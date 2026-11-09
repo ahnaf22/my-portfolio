@@ -27,11 +27,18 @@ export function About() {
         </div>
       </div>
 
-      <dl className="mt-24 grid grid-cols-2 border-t border-ink md:mt-36 md:grid-cols-4">
+      <dl className="mt-24 grid grid-cols-2 border-t border-ink md:mt-36 md:grid-cols-3">
         {stats.map((s, i) => (
-          <Reveal key={s.label} delay={i * 0.1} className="@container border-b border-ink py-8 pr-4 md:border-b-0 md:border-r md:py-10 md:pl-6 md:first:pl-0 md:first:pr-10 md:last:border-r-0">
+          <Reveal
+            key={s.label}
+            delay={(i % 3) * 0.1}
+            // 3 columns on desktop: rule under the first row, rule between columns, none after the last column
+            className={`@container border-b border-ink py-8 pr-4 md:border-r md:py-10 md:pl-6 ${
+              i < 3 ? "md:border-b" : "md:border-b-0"
+            } ${i % 3 === 2 ? "md:border-r-0" : ""} ${i % 3 === 0 ? "md:pl-0 md:pr-10" : ""}`}
+          >
             <dd className="font-display text-[clamp(2rem,28cqw,6.5rem)] font-semibold leading-none tracking-[-0.035em]">
-              <CountUp to={s.value} suffix={s.suffix} />
+              <CountUp to={s.value} suffix={s.suffix} decimals={s.decimals} />
             </dd>
             <dt className="mt-4 text-base font-medium md:text-lg">{s.label}</dt>
             <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-mute">{s.note}</p>

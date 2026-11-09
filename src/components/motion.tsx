@@ -125,7 +125,7 @@ export function ScrollFill({ text, className }: { text: string; className?: stri
   );
 }
 
-export function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
+export function CountUp({ to, suffix = "", decimals = 0 }: { to: number; suffix?: string; decimals?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
   const [n, setN] = useState(0);
@@ -134,13 +134,13 @@ export function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
     const c = animate(0, to, {
       duration: 2.2,
       ease: [0.16, 1, 0.3, 1],
-      onUpdate: (v) => setN(Math.round(v)),
+      onUpdate: setN,
     });
     return () => c.stop();
   }, [inView, to]);
   return (
     <span ref={ref} className="tabular-nums">
-      {n.toLocaleString("en-US")}
+      {n.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}
       {suffix}
     </span>
   );

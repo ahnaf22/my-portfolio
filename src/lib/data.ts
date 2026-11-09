@@ -16,13 +16,18 @@ export const profile = {
 };
 
 export const aboutText =
-  "I'm a senior engineer who likes owning a system from the first requirement call to the 3 a.m. pager. Five years of heavily customised e-commerce storefronts, payment and shipping integrations, and a multi-tenant SaaS I designed, shipped and keep alive on my own Linux servers. I use AI agents every day, and I read every diff before it ships.";
+  "I'm a senior engineer who likes owning a system from the first requirement call to the 3 a.m. pager. Five years of heavily customised e-commerce storefronts, payment and shipping integrations, and a multi-tenant SaaS I designed, shipped and keep alive on my own Linux servers, now serving 1,200+ paying customers. I use AI agents every day, and I read every diff before it ships.";
 
-export const stats = [
+export type Stat = { value: number; suffix: string; decimals?: number; label: string; note: string };
+
+// first row is Storola's scale (from the CV), second row is career-wide
+export const stats: Stat[] = [
+  { value: 1200, suffix: "+", label: "Active paid customers", note: "On Storola, solo-run" },
+  { value: 5.5, decimals: 1, suffix: "M+", label: "Orders processed", note: "55 lakh+ since launch" },
+  { value: 400, suffix: " Cr", label: "BDT in merchant sales", note: "Generated on Storola" },
   { value: 5, suffix: "+", label: "Years in production", note: "PHP · Laravel · OpenCart" },
   { value: 10000, suffix: "+", label: "Concurrent users", note: "Online olympiad, one platform" },
-  { value: 9, suffix: "+", label: "Products shipped", note: "Web, SaaS and Flutter" },
-  { value: 1, suffix: "", label: "Engineer on Storola", note: "Code, infra, backups, pager" },
+  { value: 10, suffix: "+", label: "Products shipped", note: "Web, SaaS and Flutter" },
 ];
 
 export type ArtId =
@@ -32,6 +37,7 @@ export type ArtId =
   | "parcel"
   | "deshtax"
   | "bricm"
+  | "gotravel"
   | "displaylab"
   | "flatshop"
   | "nutriora";
@@ -54,6 +60,7 @@ export const projects: Project[] = [
     stack: ["PHP", "MySQL", "Linux", "Nginx"],
     summary: "Clients launch and run their own online stores. I own everything from the data model to the pager.",
     points: [
+      "Scale today: 1,200+ active paid customers, BDT 400 crore in merchant sales and 5.5 million+ orders (55 lakh+) processed since launch.",
       "Designed tenant provisioning, isolated data management, store configuration and subscription-based access.",
       "Architected the multi-tenant data model and an automated store-setup pipeline with schema management across tenant databases.",
       "Sole engineer on the production stack: server config, deployment, SSL, backups, monitoring and hardening.",
@@ -117,6 +124,20 @@ export const projects: Project[] = [
       "Tuned query and caching strategy, queue-based background processing and server configuration.",
       "Kept the platform stable and responsive at peak load.",
     ],
+  },
+  {
+    id: "gotravel",
+    title: "GoTravel",
+    kind: "Bangladesh travel guide & trip planner",
+    stack: ["Laravel", "Inertia.js", "React", "Tailwind CSS", "MySQL"],
+    summary: "A fast single-page guide to travelling Bangladesh, with the planning maths built in.",
+    points: [
+      "Destination guides, traveller stories, events and offers as a responsive single-page app on Laravel with an Inertia.js and React front end.",
+      "\"Around Me\" discovery ranks tourist spots by distance from the user's position or a chosen district, alongside the nearest emergency helplines and local food.",
+      "Tour budget planner estimates total and per-person cost from route, transport, group size, trip length and comfort level, then drafts a day-by-day itinerary with places to stay.",
+      "Group expense splitter handles uneven splits and settles debts in the fewest transactions, with PDF export and one-tap WhatsApp sharing.",
+    ],
+    href: "https://gotravel-izjr.onrender.com/",
   },
   {
     id: "displaylab",
@@ -225,6 +246,6 @@ export const stack = [
   },
   {
     group: "Frontend",
-    items: ["JavaScript", "jQuery", "Twig", "Bootstrap", "Next.js", "React"],
+    items: ["JavaScript", "React", "Inertia.js", "Tailwind CSS", "Next.js", "jQuery", "Twig", "Bootstrap"],
   },
 ];
